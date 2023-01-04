@@ -3,8 +3,18 @@
 		<HeaderBanner />
 	</section>
 
-	<section class="mx-2">
+	<section>
 		<BodyAbout />
+	</section>
+
+	<section>
+		<CommonLine />
+		<BodyNiche />
+	</section>
+
+	<section>
+		<CommonLine />
+		<BodySelectedProjects />
 	</section>
 	
 </template>

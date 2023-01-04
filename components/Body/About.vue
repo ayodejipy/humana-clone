@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full flex">
+	<div class="w-full flex sm:pt-10 sm:pb-60">
 		<div class="flex-shrink-0 w-64">
 			<p class="text-xl font-light text-gray-800">Lagos, Nigeria</p>
 			<p class="text-xl font-light text-gray-800">

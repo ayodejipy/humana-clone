@@ -21,7 +21,7 @@
 			</div>
 		</nav>
 
-		<main class="relative z-10">
+		<main class="relative z-10 mx-2">
 			<slot />
 		</main>
 	</div>
