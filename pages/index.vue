@@ -6,4 +6,5 @@
 	<section class="mx-2">
 		<BodyAbout />
 	</section>
+	
 </template>
