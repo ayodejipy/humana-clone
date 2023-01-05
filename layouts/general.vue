@@ -8,7 +8,7 @@
 			</div>
 		</div>
 
-		<nav class="grid grid-cols-12 py-3 mx-2 relative z-20">
+		<nav class="grid grid-cols-12 py-3 px-2 relative z-20">
 			<div class="col-auto hidden">
 				Rainbow.
 			</div>
@@ -21,7 +21,7 @@
 			</div>
 		</nav>
 
-		<main class="relative z-10 mx-2">
+		<main class="relative z-10 px-2">
 			<slot />
 		</main>
 	</div>
