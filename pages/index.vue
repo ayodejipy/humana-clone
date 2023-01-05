@@ -12,7 +12,7 @@
 		<BodyNiche />
 	</section>
 
-	<section>
+	<section class="overflow-hidden">
 		<CommonLine />
 		<BodySelectedProjects />
 	</section>
