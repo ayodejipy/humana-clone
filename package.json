@@ -1,24 +1,39 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "test": "vitest --run --reporter verbose --globals",
-    "test:watch": "vitest --reporter verbose --globals"
-  },
-  "devDependencies": {
-    "@nuxt/test-utils": "^3.0.0",
-    "@playwright/test": "^1.29.1",
-    "autoprefixer": "^10.4.13",
-    "nuxt": "3.0.0",
-    "postcss": "^8.4.20",
-    "tailwindcss": "^3.2.4",
-    "vitest": "^0.26.3"
-  },
-  "dependencies": {
-    "dayjs": "^1.11.7"
-  }
+    "private": true,
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
+        "lint:prettier": "prettier --check .",
+        "lint": "yarn lint:js && yarn lint:prettier",
+        "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
+        "test": "vitest",
+        "test:watch": "vitest --reporter verbose --globals"
+    },
+    "devDependencies": {
+        "@nuxt/test-utils": "^3.0.0",
+        "@nuxtjs/eslint-config": "^12.0.0",
+        "@nuxtjs/eslint-config-typescript": "^12.0.0",
+        "@typescript-eslint/parser": "^5.48.0",
+        "@vue/test-utils": "^2.2.7",
+        "autoprefixer": "^10.4.13",
+        "eslint": "^8.31.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-vitest": "^0.0.21",
+        "jsdom": "^20.0.3",
+        "nuxt": "3.0.0",
+        "postcss": "^8.4.20",
+        "prettier": "^2.8.1",
+        "tailwindcss": "^3.2.4",
+        "typescript": "^4.9.4",
+        "vitest": "^0.26.3"
+    },
+    "dependencies": {
+        "dayjs": "^1.11.7",
+        "ts-node": "^10.9.1"
+    }
 }

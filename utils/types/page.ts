@@ -1,4 +1,4 @@
 export type NavLinksType = {
-	name: string,
-	path: string
+    name: string
+    path: string
 }

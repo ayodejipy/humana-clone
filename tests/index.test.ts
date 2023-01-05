@@ -1,14 +1,10 @@
-// import { describe, test, expect } from "vitest";
-// import { $fetch, url, setup } from "@nuxt/test-utils";
-import { setupTest, createPage } from "@nuxt/test-utils";
+import { describe, it, expect } from 'vitest'
+import { mount } from '@vue/test-utils'
+import {} from '#components'
 
-describe("browser", () => {
-    setupTest({ browser: true });
-
-    test("renders the index page", async () => {
-        const page = await createPage("/");
-        const html = await page.innerHTML("body");
-
-        expect(html).toContain("Something");
-    });
-});
+describe('index.vue', () => {
+    it('is a Vue instance', () => {
+        const wrapper = mount(index)
+        expect(wrapper.vm).toBeTruthy()
+    })
+})
