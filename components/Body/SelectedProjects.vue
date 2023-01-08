@@ -1,12 +1,12 @@
 <template>
-    <div class="relative w-full flex flex-row sm:gap-6 overflow-x-auto sm:pb-52">
-        <div v-for="project in sampleProjects" :key="project.title" class="flex-[0_0_33%] max-w-[33%]">
+    <div class="relative w-full flex flex-row gap-3 md:gap-6 overflow-x-auto pb-24 md:pb-52">
+        <div v-for="project in sampleProjects" :key="project.title" class="flex-[0_0_88%] max-w-[88%] md:flex-[0_0_33%] md:max-w-[33%]">
             <div class="space-y-4">
                 <p class="text-lg font-light text-gray-800">
                     <span class="">{{ project.title }}</span>
                     <span class="hidden">{{ project.sub }}</span>
                 </p>
-                <div class="w-full h-[25rem] object-cover rounded-xl overflow-hidden">
+                <div class="w-full h-[23.5rem] md:h-[25rem] object-cover rounded-xl overflow-hidden">
                     <img :src="project.photo" :alt="project.title + 'project'" class="w-full h-full object-cover" />
                 </div>
             </div>

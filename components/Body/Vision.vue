@@ -1,5 +1,5 @@
 <template>
-    <div class="sm:pb-60">
+    <div class="sm:pb-52">
         <div class="mt-6 mb-4">
             <button type="button" class="border border-gray-200 px-4 py-1 text-lg font-light tracking-wide rounded-full">Our Vision ↗</button>
         </div>

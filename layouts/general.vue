@@ -3,7 +3,7 @@
         <div class="fixed inset-0 h-screen w-full pointer-events-none">
             <div class="flex justify-around flex-wrap h-full">
                 <div v-for="n in 12" :key="n" class="flex-1 max-w-['30%'] h-full px-1.5">
-                    <div class="border-x border-solid border-gray-100 h-full"></div>
+                    <div class="border-x border-dashed border-gray-100 h-full"></div>
                 </div>
             </div>
         </div>
@@ -19,9 +19,11 @@
             </div>
         </nav>
 
-        <main class="relative z-10 px-2">
+        <main class="relative z-10 px-1.5">
             <slot />
         </main>
+
+        <Footer />
     </div>
 </template>
 

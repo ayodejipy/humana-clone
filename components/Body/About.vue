@@ -1,19 +1,19 @@
 <template>
-    <div class="w-full flex sm:pt-10 sm:pb-60">
+    <div class="w-full flex flex-col gap-8 md:gap-0 md:flex-row sm:pt-10 pb-24 md:pb-60">
         <div class="flex-shrink-0 w-64">
             <p class="text-xl font-light text-gray-800">Lagos, Nigeria</p>
-            <p class="text-xl font-light text-gray-800">
+            <p id="local-time" class="text-xl font-light text-gray-800">
                 Local Time: <span class="uppercase">{{ time }}</span>
             </p>
         </div>
-        <div class="flex-shrink-0 w-[17rem] ml-[9.5rem]">
+        <div class="flex-shrink-0 w-[17rem] md:ml-[9.5rem]">
             <p class="text-xl font-light text-gray-800">{{ day }}</p>
             <p class="text-xl font-light text-gray-800">
                 {{ monthYear }}
             </p>
         </div>
         <div class="sm:flex-[0_0_51%] sm:max-w-[51%]">
-            <h2 class="sm:text-5xl tracking-normal leading-6 font-light break-words">
+            <h2 class="text-3xl leading-tight sm:text-5xl tracking-normal md:leading-6 font-light break-words">
                 We design disruptive brands for organizations that aspire to have a positive social and environmental impact.
             </h2>
         </div>

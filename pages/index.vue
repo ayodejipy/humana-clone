@@ -1,24 +1,45 @@
 <template>
-    <section class="w-full sm:pb-60">
-        <HeaderBanner />
-    </section>
+    <div class="w-full">
+        <section>
+            <HeaderBanner />
+        </section>
 
-    <section>
-        <BodyAbout />
-    </section>
+        <section>
+            <BodyAbout />
+        </section>
 
-    <section>
-        <CommonLine />
-        <BodyNiche />
-    </section>
+        <section>
+            <CommonLine class="mb-6" />
+            <BodyNiche />
+        </section>
 
-    <section class="overflow-hidden">
-        <CommonLine />
-        <BodySelectedProjects />
-    </section>
+        <section class="overflow-hidden">
+            <CommonLine />
+            <BodySelectedProjects />
+        </section>
 
-    <section>
-        <CommonLine class="sm:mb-20" />
-        <BodyVision />
-    </section>
+        <section>
+            <CommonLine class="sm:mb-20" />
+            <BodyVision />
+        </section>
+
+        <section>
+            <CommonLine />
+            <BodyWhatWeDo />
+        </section>
+
+        <section>
+            <BodyImpact />
+        </section>
+
+        <section>
+            <CommonLine />
+            <BodyWorkWithUs />
+        </section>
+
+        <section>
+            <CommonLine />
+            <BodyReachOut />
+        </section>
+    </div>
 </template>
