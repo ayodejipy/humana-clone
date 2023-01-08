@@ -29,6 +29,7 @@
         </section>
 
         <section>
+            <CommonLine />
             <BodyImpact />
         </section>
 

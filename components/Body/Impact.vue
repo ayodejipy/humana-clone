@@ -1,36 +1,47 @@
 <template>
-    <div class="sm:pb-52">
-        <div class="w-full flex sm:pb-8">
-            <div class="flex-[0_0_16.66%] max-w-[16.66%] flex items-start">
-                <p class="border border-gray-200 px-6 py-1 text-lg font-light tracking-wide rounded-full">Our Impact</p>
+    <div class="pb-24 sm:pb-52">
+        <div class="w-full flex flex-col gap-6 md:gap-x-10 md:flex-row sm:pb-8">
+            <div class="w-full md:flex-[0_0_16.66%] md:max-w-[16.66%] flex items-start">
+                <p
+                    class="border border-gray-200 px-6 py-1 text-lg font-light tracking-wide rounded-full"
+                >
+                    Our Impact
+                </p>
             </div>
 
-            <div class="flex-[0_0_32%] max-w-[32%] sm:px-1.5">
-                <p class="font-light text-5xl text-gray-800 leading-snug">You don’t have to take our word for it.</p>
+            <div class="w-full md:flex-[0_0_32%] md:max-w-[32%] sm:px-1.5">
+                <p
+                    class="font-light text-3xl md:text-5xl text-gray-800 leading-tight md:leading-snug"
+                >
+                    You don’t have to take our word for it.
+                </p>
             </div>
-            <div class="flex-1 sm:px-7">
-                <p class="font-light text-5xl text-gray-800">
-                    Here’s what some of our clients have to say about the power of a well-defined visual strategy.
+            <div class="w-full md:flex-1 sm:px-7">
+                <p class="font-light text-3xl md:text-5xl text-gray-800">
+                    Here’s what some of our clients have to say about the power of a well-defined
+                    visual strategy.
                 </p>
             </div>
         </div>
 
-        <div class="sm:mt-12">
+        <div class="mt-16 sm:mt-12">
             <div
                 v-for="testimony in testimonials"
                 :key="testimony.brand"
-                class="flex sm:pt-4 sm:pb-10 border-t border-gray-200 last:border-b last:border-b-gray-200"
+                class="w-full h-[7.75rem] md:h-auto relative overflow-hidden md:overflow-auto flex flex-col md:flex-row pt-4 md:pb-10 mb-1 md:mb-0 border-t border-gray-200 last:border-b last:border-b-gray-200"
             >
-                <div class="relative flex-[0_0_16.67%] max-w-[18%]">
-                    <p class="font-light text-xl text-gray-800">{{ testimony.brand }}</p>
+                <div class="relative w-full md:flex-[0_0_16.67%] md:max-w-[18%]">
+                    <p class="font-light text-xl text-gray-800 mb-6 md:mb-0">
+                        {{ testimony.brand }}
+                    </p>
                 </div>
-                <div class="relative flex-[0_0_16.67%] max-w-[18%]">
+                <div class="relative w-full md:flex-[0_0_16.67%] md:max-w-[18%]">
                     <p class="capitalize text-xl text-gray-800 font-light">{{ testimony.name }}</p>
                 </div>
-                <div class="relative flex-[0_0_16.67%] max-w-[18%] sm:pl-1">
+                <div class="relative w-full md:flex-[0_0_16.67%] md:max-w-[18%] sm:pl-1">
                     <p class="capitalize text-xl text-gray-800 font-light">{{ testimony.role }}</p>
                 </div>
-                <div class="relative flex-1 sm:pl-2">
+                <div class="relative w-full flex-1 sm:pl-2">
                     <p class="capitalize text-xl text-gray-800 font-light">{{ testimony.text }}</p>
                 </div>
             </div>
