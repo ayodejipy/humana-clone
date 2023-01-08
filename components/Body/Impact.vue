@@ -11,13 +11,13 @@
 
             <div class="w-full md:flex-[0_0_32%] md:max-w-[32%] sm:px-1.5">
                 <p
-                    class="font-light text-3xl md:text-5xl text-gray-800 leading-tight md:leading-snug"
+                    class="font-light text-3xl md:text-5xl text-gray-800 leading-tight md:leading-tight"
                 >
                     You don’t have to take our word for it.
                 </p>
             </div>
             <div class="w-full md:flex-1 sm:px-7">
-                <p class="font-light text-3xl md:text-5xl text-gray-800">
+                <p class="font-light text-3xl md:text-4xl text-gray-800 leading-tight">
                     Here’s what some of our clients have to say about the power of a well-defined
                     visual strategy.
                 </p>
