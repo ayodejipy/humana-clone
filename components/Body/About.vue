@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full flex flex-col gap-8 md:gap-0 md:flex-row sm:pt-10 pb-24 md:pb-60">
+    <div class="w-full flex flex-col gap-8 md:gap-0 md:flex-row sm:pt-20 pb-24 md:pb-60">
         <div class="flex-shrink-0 w-64">
             <p class="text-xl font-light text-gray-800">Lagos, Nigeria</p>
             <p id="local-time" class="text-xl font-light text-gray-800">
@@ -13,8 +13,11 @@
             </p>
         </div>
         <div class="sm:flex-[0_0_51%] sm:max-w-[51%]">
-            <h2 class="text-3xl leading-tight sm:text-5xl tracking-normal md:leading-6 font-light break-words">
-                We design disruptive brands for organizations that aspire to have a positive social and environmental impact.
+            <h2
+                class="text-3xl leading-tight sm:text-5xl tracking-normal md:leading-tight font-light break-words"
+            >
+                We design disruptive brands for organizations that aspire to have a positive social
+                and environmental impact.
             </h2>
         </div>
     </div>
