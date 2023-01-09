@@ -10,7 +10,7 @@
         </div>
 
         <div class="w-full sm:mb-10">
-            <h3 class="font-light text-3xl md:text-5xl text-gray-800">
+            <h3 class="font-light text-3xl md:text-5xl text-gray-800 md:leading-tight">
                 We’ve worked extensively in terms of geography and sector, developing a variety of
                 work — products, services, and experiences — that has taught us that a well-defined
                 visual strategy is key to bring visibility, credibility, and funds to any
@@ -29,15 +29,21 @@
                 </h4>
                 <p class="capitalize text-xl mt-2 text-gray-800 font-light">Doing our best</p>
             </div>
-            <div class="flex-[1_1_50%] md:flex-[0_0_25%] md:max-w-[25%] relative pt-6 md:pt-0">
+            <div
+                class="flex-[1_1_50%] md:flex-[0_0_25%] md:max-w-[25%] relative pt-6 md:pt-0 md:pl-1"
+            >
                 <h2 class="font-medium text-[4.95rem] md:text-[6.5rem] leading-none">100</h2>
                 <p class="capitalize text-xl mt-2 text-gray-800 font-light">Completed Projects</p>
             </div>
-            <div class="flex-[1_1_50%] md:flex-[0_0_25%] md:max-w-[25%] relative pt-6 md:pt-0">
+            <div
+                class="flex-[1_1_50%] md:flex-[0_0_25%] md:max-w-[25%] relative pt-6 md:pt-0 md:pl-1.5"
+            >
                 <h2 class="font-medium text-[4.95rem] md:text-[6.5rem] leading-none">4</h2>
                 <p class="capitalize text-xl mt-2 text-gray-800 font-light">Countries Worldwide</p>
             </div>
-            <div class="flex-[1_1_50%] md:flex-[0_0_25%] md:max-w-[25%] relative pt-6 md:pt-0">
+            <div
+                class="flex-[1_1_50%] md:flex-[0_0_25%] md:max-w-[25%] relative pt-6 md:pt-0 md:pl-2"
+            >
                 <h2 class="font-medium text-[4.95rem] md:text-[6.5rem] leading-none">34</h2>
                 <p class="capitalize text-xl mt-2 text-gray-800 font-light">Trees Planted</p>
             </div>
