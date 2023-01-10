@@ -26,7 +26,6 @@
         "eslint-plugin-vitest": "^0.0.21",
         "jsdom": "^20.0.3",
         "nuxt": "3.0.0",
-        "nuxt-gsap-module": "^1.7.2",
         "postcss": "^8.4.20",
         "prettier": "^2.8.1",
         "tailwindcss": "^3.2.4",
@@ -35,6 +34,7 @@
     },
     "dependencies": {
         "dayjs": "^1.11.7",
+        "gsap": "^3.11.4",
         "ts-node": "^10.9.1"
     }
 }
