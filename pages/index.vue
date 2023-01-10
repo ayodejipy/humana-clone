@@ -9,7 +9,6 @@
         </section>
 
         <section>
-            <CommonLine class="mb-6" />
             <BodyNiche />
         </section>
 

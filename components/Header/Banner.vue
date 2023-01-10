@@ -61,11 +61,14 @@ onMounted(() => {
             trigger: '.banner-wrap',
             start: '5%',
             end: '47%',
-            markers: true,
             scrub: true,
         },
     })
 
-    tl.fromTo(logoSvg.value, { x: '0%', opacity: 1 }, { x: '55%', opacity: 0.5 })
+    tl.fromTo(
+        logoSvg.value,
+        { x: '0%', opacity: 1 },
+        { x: '50%', opacity: 0.5, ease: 'power2.out' }
+    )
 })
 </script>

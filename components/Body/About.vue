@@ -33,14 +33,11 @@ const currentDay = ref<HTMLDivElement | null>(null)
 const foreword = ref<HTMLDivElement | null>(null)
 
 onMounted(() => {
-    const tl: gsap.core.Timeline = $gsap.timeline({ defaults: { duration: 0.75 } })
-    tl.fromTo(timezone.value, { y: 350, opacity: 0 }, { y: 0, opacity: 1, ease: 'Power3.out' })
-    tl.fromTo(
-        currentDay.value,
-        { y: 350, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'Power3.out' },
-        '<'
-    )
-    tl.fromTo(foreword.value, { y: 350, opacity: 0 }, { y: 0, opacity: 1, ease: 'Power3.out' }, '<')
+    const tl: gsap.core.Timeline = $gsap.timeline({
+        defaults: { duration: 1.85, ease: 'Power3.out' },
+    })
+    tl.fromTo(timezone.value, { y: 350, opacity: 0 }, { y: 0, opacity: 1 })
+    tl.fromTo(currentDay.value, { y: 350, opacity: 0 }, { y: 0, opacity: 1 }, '<')
+    tl.fromTo(foreword.value, { y: 350, opacity: 0 }, { y: 0, opacity: 1 }, '<')
 })
 </script>
