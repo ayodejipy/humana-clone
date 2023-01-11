@@ -1,23 +1,28 @@
 <template>
-    <div class="relative w-full flex flex-row gap-3 md:gap-6 overflow-x-hidden pb-24 md:pb-52">
-        <div
-            v-for="project in sampleProjects"
-            :key="project.title"
-            class="flex-[0_0_88%] max-w-[88%] md:flex-[0_0_33%] md:max-w-[33%]"
-        >
-            <div class="space-y-4">
-                <p class="text-lg font-light text-gray-800">
-                    <span class="">{{ project.title }}</span>
-                    <span class="hidden">{{ project.sub }}</span>
-                </p>
-                <div
-                    class="w-full h-[23.5rem] md:h-[25rem] object-cover rounded-xl overflow-hidden"
-                >
-                    <img
-                        :src="project.photo"
-                        :alt="project.title + 'project'"
-                        class="w-full h-full object-cover"
-                    />
+    <div ref="container" class="selected-projects w-full pb-24 md:pb-52">
+        <Line class="line" />
+        <div class="relative w-full flex flex-row gap-3 md:gap-6 overflow-x-hidden">
+            <div
+                v-for="project in sampleProjects"
+                ref="projectContainer"
+                :key="project.title"
+                aria-label="Single selected project container"
+                class="project flex-[0_0_88%] max-w-[88%] md:flex-[0_0_33%] md:max-w-[33%]"
+            >
+                <div class="space-y-4">
+                    <p class="text-lg font-light text-gray-800">
+                        <span class="">{{ project.title }}</span>
+                        <span class="hidden">{{ project.sub }}</span>
+                    </p>
+                    <div
+                        class="w-full h-[23.5rem] md:h-[25rem] object-cover rounded-xl overflow-hidden"
+                    >
+                        <img
+                            :src="project.photo"
+                            :alt="project.title + 'project'"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -25,11 +30,17 @@
 </template>
 
 <script lang="ts" setup>
+import Line from '@/components/Common/Line.vue'
+const { $gsap } = useNuxtApp()
+
 interface ProjectsTypes {
     title: string
     sub: string
     photo: string
 }
+
+const container = ref<HTMLDivElement | null>(null)
+const projectContainer = ref<HTMLDivElement[]>([])
 
 const sampleProjects = ref<ProjectsTypes[]>([
     {
@@ -63,4 +74,33 @@ const sampleProjects = ref<ProjectsTypes[]>([
         photo: 'https://images.unsplash.com/photo-1634169685828-235cd18fae28?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
     },
 ])
+
+onMounted(() => {
+    // $gsap.fromTo(
+    //     container.value,
+    //     { y: 380, opacity: 0 },
+    //     { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
+    // )
+
+    // $gsap.set(projectContainer.value, { transformOrigin: 'right' })
+    // $gsap.fromTo(
+    //     projectContainer.value,
+    //     { x: '100%', scale: 0 },
+    //     { x: 0, scale: 1, duration: 1, stagger: 0.5, ease: 'power3.out' }
+    // )
+    console.log(container.value)
+
+    const project = $gsap.utils.toArray('.project')
+
+    $gsap.to(projectContainer.value, {
+        xPercent: -100 * (project.length - 1 * 2.78),
+        ease: 'none',
+        scrollTrigger: {
+            trigger: container.value,
+            pin: true,
+            scrub: 1,
+            end: () => '+=' + container.value?.offsetWidth,
+        },
+    })
+})
 </script>
