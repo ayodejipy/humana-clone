@@ -1,7 +1,10 @@
 <template>
     <div class="pb-24 sm:pb-52">
-        <div class="mt-12 mb-6 md:mt-6 md:mb-4">
+        <Line ref="lineElem" class="md:mb-20" />
+
+        <div class="mt-12 mb-6 md:mt-6 md:mb-6 overflow-hidden">
             <button
+                ref="visionBtn"
                 type="button"
                 class="border border-gray-200 px-4 py-1 text-lg font-light tracking-wide rounded-full"
             >
@@ -9,8 +12,11 @@
             </button>
         </div>
 
-        <div class="w-full sm:mb-10">
-            <h3 class="font-light text-3xl md:text-5xl text-gray-800 md:leading-tight">
+        <div class="w-full sm:mb-10 overflow-hidden">
+            <h3
+                ref="title"
+                class="font-light text-3xl md:text-[3.2rem] text-gray-800 md:leading-tight"
+            >
                 We’ve worked extensively in terms of geography and sector, developing a variety of
                 work — products, services, and experiences — that has taught us that a well-defined
                 visual strategy is key to bring visibility, credibility, and funds to any
@@ -51,4 +57,36 @@
     </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Line from '@/components/Common/Line.vue'
+const { $gsap } = useNuxtApp()
+const lineElem = ref<HTMLDivElement | null>(null)
+const title = ref<HTMLHeadingElement | null>(null)
+const visionBtn = ref<HTMLButtonElement | null>(null)
+
+onMounted(() => {
+    const tl = $gsap.timeline({
+        defaults: {
+            duration: 0.5,
+            ease: 'power2.out',
+        },
+        scrollTrigger: {
+            trigger: '.selected-projects',
+            start: '80%',
+            end: '+=350',
+            markers: true,
+        },
+    })
+    // $gsap.set(lineElem.value, { scaleX: 0, transformOrigin: 'left center' })
+    // tl.to(lineElem.value, {
+    //     scaleX: 1,
+    //     scrollTrigger: {
+    //         trigger: '.selected-projects',
+    //         start: '50%',
+    //         markers: true,
+    //     },
+    // })
+    tl.fromTo(visionBtn.value, { y: '100%' }, { y: 0 })
+    tl.fromTo(title.value, { y: '100%' }, { y: 0 }, '<40%')
+})
+</script>

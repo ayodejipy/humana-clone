@@ -17,9 +17,9 @@
                         :key="link.name"
                         class="flex-[0_0_17%] max-w-[30%] self-start"
                     >
-                        <NuxtLink class="text-lg font-light" :to="link.path">{{
-                            link.name
-                        }}</NuxtLink>
+                        <NuxtLink class="text-lg font-light" :to="link.path">
+                            {{ link.name }}
+                        </NuxtLink>
                     </li>
                 </ul>
             </div>

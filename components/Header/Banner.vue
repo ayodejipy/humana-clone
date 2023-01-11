@@ -4,7 +4,7 @@
             ref="logoSvg"
             width="1250"
             height="251"
-            class="logo-svg w-full h-auto md:w-auto"
+            class="logo-svg w-full h-auto md:w-auto overflow-hidden"
             viewBox="0 0 1250 251"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ onMounted(() => {
     tl.fromTo(
         logoSvg.value,
         { x: '0%', opacity: 1 },
-        { x: '50%', opacity: 0.5, ease: 'power2.out' }
+        { x: '50%', opacity: 0.6, duration: 2.5, ease: 'power2.out' }
     )
 })
 </script>

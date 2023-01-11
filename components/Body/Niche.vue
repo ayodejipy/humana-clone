@@ -1,6 +1,6 @@
 <template>
     <div class="w-full pb-24 md:pb-60">
-        <Line ref="lineElement" class="line" />
+        <Line ref="lineElement" />
         <div class="niche-body flex flex-col md:flex-row">
             <div class="flex-shrink-0 w-full sm:w-[34rem]">
                 <p
@@ -58,8 +58,8 @@ onMounted(() => {
             end: '60%',
         },
     })
-    $gsap.set('.line', { scaleX: 0, transformOrigin: 'left center' })
-    tl.to('.line', { scaleX: 1, duration: 1.75, ease: 'power3.out' })
+    // $gsap.set('.line', { scaleX: 0, transformOrigin: 'left center' })
+    // tl.to('.line', { scaleX: 1, duration: 1.75, ease: 'power3.out' })
     tl.fromTo(nicheTitle.value, { opacity: 0 }, { opacity: 1 }, '<')
     tl.fromTo(nicheItem.value, { y: 25, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.2 }, '<30%')
 })

@@ -17,7 +17,6 @@
         </section>
 
         <section>
-            <CommonLine class="sm:mb-20" />
             <BodyVision />
         </section>
 

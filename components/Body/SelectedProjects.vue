@@ -1,6 +1,6 @@
 <template>
     <div ref="container" class="selected-projects w-full pb-24 md:pb-52">
-        <Line ref="lineElem" class="line" />
+        <Line ref="lineElem" />
         <div class="relative w-full flex flex-row gap-3 md:gap-6 overflow-x-hidden">
             <div
                 v-for="project in sampleProjects"
@@ -83,27 +83,21 @@ onMounted(() => {
             ease: 'power1.out',
         },
     })
-    const _scrollTrigger = {
-        trigger: '.niche-body',
-        start: '130%',
-    }
-    $gsap.set(lineElem.value, { scaleX: 0, transformOrigin: 'left center' })
-    tl.to(lineElem.value, {
-        scaleX: 1,
-        scrollTrigger: _scrollTrigger,
-    })
+
     tl.fromTo(
         projectContainer.value,
-        { x: '100%', opacity: 0 },
+        { x: '1200px' },
         {
             x: 0,
-            opacity: 1,
-            stagger: 0.4,
-            scrollTrigger: _scrollTrigger,
-        },
-        '<30%'
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '.niche-body',
+                start: '130%',
+                markers: true,
+            },
+        }
     )
-
+    // horizontal scrolling animation for projects feed
     $gsap.to(projectContainer.value, {
         xPercent: -100 * (projectContainer.value.length - 1 * 2.79),
         ease: 'none',
