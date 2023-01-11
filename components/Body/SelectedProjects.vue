@@ -1,6 +1,6 @@
 <template>
     <div ref="container" class="selected-projects w-full pb-24 md:pb-52">
-        <Line class="line" />
+        <Line ref="lineElem" class="line" />
         <div class="relative w-full flex flex-row gap-3 md:gap-6 overflow-x-hidden">
             <div
                 v-for="project in sampleProjects"
@@ -9,7 +9,7 @@
                 aria-label="Single selected project container"
                 class="project flex-[0_0_88%] max-w-[88%] md:flex-[0_0_33%] md:max-w-[33%]"
             >
-                <div class="space-y-4">
+                <div class="space-y-6">
                     <p class="text-lg font-light text-gray-800">
                         <span class="">{{ project.title }}</span>
                         <span class="hidden">{{ project.sub }}</span>
@@ -40,6 +40,7 @@ interface ProjectsTypes {
 }
 
 const container = ref<HTMLDivElement | null>(null)
+const lineElem = ref<HTMLDivElement | null>(null)
 const projectContainer = ref<HTMLDivElement[]>([])
 
 const sampleProjects = ref<ProjectsTypes[]>([
@@ -76,24 +77,38 @@ const sampleProjects = ref<ProjectsTypes[]>([
 ])
 
 onMounted(() => {
-    // $gsap.fromTo(
-    //     container.value,
-    //     { y: 380, opacity: 0 },
-    //     { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
-    // )
+    const tl = $gsap.timeline({
+        defaults: {
+            duration: 2,
+            ease: 'power1.out',
+        },
+    })
+    const _scrollTrigger = {
+        trigger: '.niche-body',
+        start: '130%',
+        markers: true,
+    }
+    $gsap.set(lineElem.value, { scaleX: 0, transformOrigin: 'left center' })
+    tl.to(lineElem.value, {
+        scaleX: 1,
+        scrollTrigger: _scrollTrigger,
+    })
+    tl.fromTo(
+        projectContainer.value,
+        { x: '100%', opacity: 0 },
+        {
+            x: 0,
+            opacity: 1,
+            stagger: 0.4,
+            scrollTrigger: _scrollTrigger,
+        },
+        '<30%'
+    )
 
-    // $gsap.set(projectContainer.value, { transformOrigin: 'right' })
-    // $gsap.fromTo(
-    //     projectContainer.value,
-    //     { x: '100%', scale: 0 },
-    //     { x: 0, scale: 1, duration: 1, stagger: 0.5, ease: 'power3.out' }
-    // )
-    console.log(container.value)
-
-    const project = $gsap.utils.toArray('.project')
+    // const project = $gsap.utils.toArray('.project')
 
     $gsap.to(projectContainer.value, {
-        xPercent: -100 * (project.length - 1 * 2.78),
+        xPercent: -100 * (projectContainer.value.length - 1 * 2.79),
         ease: 'none',
         scrollTrigger: {
             trigger: container.value,
