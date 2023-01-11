@@ -86,7 +86,6 @@ onMounted(() => {
     const _scrollTrigger = {
         trigger: '.niche-body',
         start: '130%',
-        markers: true,
     }
     $gsap.set(lineElem.value, { scaleX: 0, transformOrigin: 'left center' })
     tl.to(lineElem.value, {
@@ -104,8 +103,6 @@ onMounted(() => {
         },
         '<30%'
     )
-
-    // const project = $gsap.utils.toArray('.project')
 
     $gsap.to(projectContainer.value, {
         xPercent: -100 * (projectContainer.value.length - 1 * 2.79),

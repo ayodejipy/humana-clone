@@ -56,7 +56,6 @@ onMounted(() => {
             trigger: '.niche-body',
             start: '-450%',
             end: '60%',
-            markers: true,
         },
     })
     $gsap.set('.line', { scaleX: 0, transformOrigin: 'left center' })
