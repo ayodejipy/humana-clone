@@ -99,13 +99,13 @@ onMounted(() => {
     )
     // horizontal scrolling animation for projects feed
     $gsap.to(projectContainer.value, {
-        xPercent: -100 * (projectContainer.value.length - 1 * 2.79),
+        xPercent: -100 * (projectContainer.value.length - 1),
         ease: 'none',
         scrollTrigger: {
             trigger: container.value,
             pin: true,
             scrub: 1,
-            end: () => '+=' + container.value?.offsetWidth,
+            // end: () => '+=' + container.value?.offsetWidth,
         },
     })
 })

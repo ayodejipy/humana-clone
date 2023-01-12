@@ -65,10 +65,10 @@ onMounted(() => {
         },
     })
 
-    tl.fromTo(
-        logoSvg.value,
-        { x: '0%', opacity: 1 },
-        { x: '50%', opacity: 0.6, duration: 2.5, ease: 'power2.out' }
-    )
+    // tl.fromTo(
+    //     logoSvg.value,
+    //     { x: '0%', opacity: 1 },
+    //     { x: '50%', opacity: 0.6, duration: 2.5, ease: 'power2.out' }
+    // )
 })
 </script>

@@ -1,6 +1,9 @@
 <template>
     <div class="pb-24 sm:pb-52">
-        <div class="w-full flex flex-col gap-6 md:gap-x-10 md:flex-row sm:pb-8">
+        <div
+            ref="preImpact"
+            class="w-full flex flex-col gap-6 md:gap-x-10 md:flex-row sm:pb-8 overflow-hidden"
+        >
             <div class="w-full md:flex-[0_0_16.66%] md:max-w-[16.66%] flex items-start">
                 <p
                     class="border border-gray-200 px-6 py-1 text-lg font-light tracking-wide rounded-full"
@@ -50,6 +53,9 @@
 </template>
 
 <script lang="ts" setup>
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+const { $gsap } = useNuxtApp()
+
 type TestimonialsType = {
     brand: string
     name: string
@@ -82,4 +88,15 @@ const testimonials = ref<TestimonialsType[]>([
         text: '150% growth in applications for Bora Mulheres by Coca Cola - "A disruptive digital presence is key to make your story remarkable, Humana is the key partner to make this happen."',
     },
 ])
+
+const preImpact = ref<HTMLDivElement | null>(null)
+
+onMounted(() => {
+    ScrollTrigger.batch(preImpact.value?.children, {
+        onEnter: (element: HTMLDivElement) => {
+            $gsap.fromTo(element, { y: '100%' }, { y: 0, duration: 1.2, ease: 'power3.out' })
+        },
+        once: true,
+    })
+})
 </script>

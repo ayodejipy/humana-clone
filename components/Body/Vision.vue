@@ -67,7 +67,7 @@ const visionBtn = ref<HTMLButtonElement | null>(null)
 onMounted(() => {
     const tl = $gsap.timeline({
         defaults: {
-            duration: 0.5,
+            duration: 1.5,
             ease: 'power2.out',
         },
         scrollTrigger: {
@@ -87,6 +87,6 @@ onMounted(() => {
     //     },
     // })
     tl.fromTo(visionBtn.value, { y: '100%' }, { y: 0 })
-    tl.fromTo(title.value, { y: '100%' }, { y: 0 }, '<40%')
+    tl.fromTo(title.value, { y: '100%' }, { y: 0 }, '<20%')
 })
 </script>

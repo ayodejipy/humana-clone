@@ -4,7 +4,6 @@
 
 <script lang="ts" setup>
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-// const { AnimateLine } = useGsap()
 const { $gsap } = useNuxtApp()
 const lineElement = ref<HTMLDivElement | null>(null)
 
@@ -12,7 +11,7 @@ onMounted(() => {
     ScrollTrigger.batch('.lines', {
         onEnter: (element) => {
             $gsap.set(element, { scaleX: 0, transformOrigin: 'left center' })
-            $gsap.to(element, { scaleX: 1, stagger: 0.2, duration: 2.5, ease: 'power3.out' })
+            $gsap.to(element, { scaleX: 1, stagger: 0.2, duration: 1.5, ease: 'power3.out' })
         },
     })
 })
