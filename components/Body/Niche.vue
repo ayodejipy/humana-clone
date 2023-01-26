@@ -21,7 +21,7 @@
                         v-for="niche in niches"
                         ref="nicheItem"
                         :key="niche"
-                        :aria-label="`Each niche item in a paragraph: ${niche}`"
+                        :aria-label="`Niche ${niche}`"
                         class="text-lg font-light text-gray-800 cursor-pointer"
                     >
                         {{ niche }}
@@ -54,8 +54,8 @@ onMounted(() => {
     const tl = $gsap.timeline({
         scrollTrigger: {
             trigger: '.niche-body',
-            start: '-450%',
-            end: '60%',
+            // start: '-450%',
+            // end: '60%',
         },
     })
     // $gsap.set('.line', { scaleX: 0, transformOrigin: 'left center' })

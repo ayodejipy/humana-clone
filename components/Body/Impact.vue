@@ -92,6 +92,7 @@ const testimonials = ref<TestimonialsType[]>([
 const preImpact = ref<HTMLDivElement | null>(null)
 
 onMounted(() => {
+    // @ts-ignore
     ScrollTrigger.batch(preImpact.value?.children, {
         onEnter: (element: HTMLDivElement) => {
             $gsap.fromTo(element, { y: '100%' }, { y: 0, duration: 1.2, ease: 'power3.out' })

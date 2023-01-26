@@ -4,8 +4,8 @@
         <div class="relative w-full flex flex-row gap-3 md:gap-6 overflow-x-hidden">
             <div
                 v-for="project in sampleProjects"
-                ref="projectContainer"
                 :key="project.title"
+                ref="projectContainer"
                 aria-label="Single selected project container"
                 class="project flex-[0_0_88%] max-w-[88%] md:flex-[0_0_33%] md:max-w-[33%]"
             >
@@ -77,23 +77,26 @@ const sampleProjects = ref<ProjectsTypes[]>([
 ])
 
 onMounted(() => {
-    const tl = $gsap.timeline({
-        defaults: {
-            duration: 2,
-            ease: 'power1.out',
-        },
-    })
+    // const tl = $gsap.timeline({
+    //     defaults: {
+    //         duration: 2,
+    //         ease: 'power1.out',
+    //     },
+    // })
 
-    tl.fromTo(
+    // $gsap.set(projectContainer.value, { transformOrigin: 'right' })
+    $gsap.fromTo(
         projectContainer.value,
-        { x: '1200px' },
+        { x: '1627px' },
         {
             x: 0,
-            stagger: 0.2,
+            stagger: 0.5,
+            duration: 1.35,
+            ease: 'power3.out',
             scrollTrigger: {
                 trigger: '.niche-body',
                 start: '130%',
-                markers: true,
+                // markers: true,
             },
         }
     )

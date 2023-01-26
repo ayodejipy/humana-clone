@@ -15,7 +15,7 @@
             <div class="tabs relative md:flex-[0_0_16.67%] md:max-w-[18%] sm:pl-1">
                 <p class="capitalize text-xl text-gray-800 font-light">Brand Communication</p>
             </div>
-            <div class="tabs relative flex-1 flex justify-start sm:pl-[9.12rem]">
+            <div class="tabs relative flex-1 flex justify-start md:pl-[9.12rem]">
                 <button
                     type="button"
                     class="border border-gray-200 px-4 py-1 text-lg font-light tracking-wide rounded-full"

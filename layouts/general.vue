@@ -8,9 +8,9 @@
             </div>
         </div>
 
-        <nav class="grid grid-cols-12 py-3 px-2 relative z-20">
+        <nav class="grid grid-cols-2 md:grid-cols-12 md:py-3 px-2 relative z-20 w-full h-full">
             <div class="col-auto hidden">Rainbow.</div>
-            <div class="col-start-6 col-end-12 px-1">
+            <div class="hidden md:block col-start-6 col-end-12 px-1">
                 <ul class="w-full flex items-center justify-between">
                     <li
                         v-for="link in links"
@@ -23,6 +23,7 @@
                     </li>
                 </ul>
             </div>
+            <CommonMobileNavBar :links="links" />
         </nav>
 
         <main class="relative z-10 px-1.5">
@@ -34,7 +35,7 @@
 </template>
 
 <script lang="ts" setup>
-type NavLinksType = {
+export type NavLinksType = {
     name: string
     path: string
 }
