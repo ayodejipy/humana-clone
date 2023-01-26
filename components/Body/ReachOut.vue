@@ -33,6 +33,7 @@
                             Your name
                         </label>
                         <input
+                            ref="inputElem"
                             type="text"
                             name="fullname"
                             tabindex="-1"
@@ -41,7 +42,7 @@
                         />
                         <div
                             class="bg-red-600 h-px w-full absolute bottom-0 z-10 transform scale-x-0 transition-all duration-150"
-                        ></div>
+                        />
                     </div>
                     <div class="flex justify-between gap-2">
                         <div class="w-5/6 relative">
@@ -49,6 +50,7 @@
                                 Email
                             </label>
                             <input
+                                ref="inputElem"
                                 type="email"
                                 name="email"
                                 tabindex="-1"
@@ -62,7 +64,7 @@
                         <button
                             type="button"
                             arial-label="Join newsletter button"
-                            class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200"
+                            class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 hover:text-white hover:bg-teal-400"
                         >
                             <span class="text-gray-500">↗</span>
                         </button>
@@ -93,6 +95,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 const { $gsap } = useNuxtApp()
 
 const contactBlock = ref<HTMLDivElement | null>(null)
+const inputElem = ref<HTMLInputElement | null>(null)
 
 const socials = ref<{ name: string; link: string }[]>([
     { name: 'Instagram', link: 'https://instagram.com' },
@@ -102,7 +105,6 @@ const socials = ref<{ name: string; link: string }[]>([
     { name: 'Spotify', link: 'https://spotify.com' },
 ])
 onMounted(() => {
-    console.log(contactBlock.value)
     ScrollTrigger.batch('.contactBlock', {
         onEnter: (element) => {
             $gsap.fromTo(
@@ -123,6 +125,11 @@ onMounted(() => {
             )
         },
         once: true,
+    })
+
+    // add event listener
+    inputElem.value?.addEventListener('click', (event) => {
+        console.log('e: ', event)
     })
 })
 </script>

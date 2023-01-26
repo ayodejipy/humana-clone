@@ -7,7 +7,7 @@
                 :key="project.title"
                 ref="projectContainer"
                 aria-label="Single selected project container"
-                class="project flex-[0_0_88%] max-w-[88%] md:flex-[0_0_33%] md:max-w-[33%]"
+                class="project flex-[0_0_88%] max-w-[88%] md:flex-[0_0_40%] md:max-w-[40%]"
             >
                 <div class="space-y-6">
                     <p class="text-lg font-light text-gray-800">
@@ -77,12 +77,6 @@ const sampleProjects = ref<ProjectsTypes[]>([
 ])
 
 onMounted(() => {
-    // const tl = $gsap.timeline({
-    //     defaults: {
-    //         duration: 2,
-    //         ease: 'power1.out',
-    //     },
-    // })
 
     // $gsap.set(projectContainer.value, { transformOrigin: 'right' })
     $gsap.fromTo(
@@ -94,8 +88,8 @@ onMounted(() => {
             duration: 1.35,
             ease: 'power3.out',
             scrollTrigger: {
-                trigger: '.niche-body',
-                start: '130%',
+                trigger: '.selected-projects',
+                start: '25% bottom',
                 // markers: true,
             },
         }

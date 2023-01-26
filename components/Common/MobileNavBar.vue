@@ -47,7 +47,7 @@
             </button>
         </div>
     </div>
-    <div ref="offsetMenu" class="menu__items w-full h-full">
+    <div ref="offsetMenu" class="menu__items block md:hidden w-full h-full">
         <ul
             class="text-white w-full h-full flex flex-col items-center justify-center gap-6 md:gap-0"
         >

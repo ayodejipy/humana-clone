@@ -88,20 +88,11 @@ onMounted(() => {
         },
         scrollTrigger: {
             trigger: '.vision',
-            // start: '70%',
-            // end: '+=350',
+            start: '35% bottom',
             // markers: true,
         },
     })
-    // $gsap.set(lineElem.value, { scaleX: 0, transformOrigin: 'left center' })
-    // tl.to(lineElem.value, {
-    //     scaleX: 1,
-    //     scrollTrigger: {
-    //         trigger: '.selected-projects',
-    //         start: '50%',
-    //         markers: true,
-    //     },
-    // })
+
     tl.fromTo(visionBtn.value, { y: '100%' }, { y: 0 })
     tl.fromTo(title.value, { y: '100%' }, { y: 0 }, '<20%')
 
