@@ -154,7 +154,6 @@ onMounted(() => {
         // check if field is not empty
         if (!input?.value) {
             input?.addEventListener('focus', (event) => {
-                console.log({ event })
                 $gsap.to(label, {
                     top: -16,
                     left: 0,
@@ -167,7 +166,7 @@ onMounted(() => {
         }
     })
 
-    // add event listener
+    // add event listener to document obj to handle on click outside of the form
     document.addEventListener('click', () => {
         targets.forEach((element: any) => {
             const label = element.querySelector('.field-label') as HTMLInputElement | null
