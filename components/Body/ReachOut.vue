@@ -43,13 +43,13 @@
                                 name="fullname"
                                 tabindex="-1"
                                 aria-label="User fullname"
-                                class="input-elem relative z-10 bg-transparent rounded-none w-full block py-1 text-gray-500 border-b border-gray-200 focus:ouline-none outline-none focus:border-b focus:border-yellow-400"
+                                class="input-elem relative z-10 bg-transparent rounded-none w-full block py-1 text-gray-500 border-b border-gray-200 focus:ouline-none outline-none"
                             />
                             <div
-                                class="bg-red-600 h-px w-full absolute bottom-0 z-10 transform scale-x-0 transition-all duration-150"
+                                class="line bg-teal-500 h-px w-full absolute bottom-0 z-10 opacity-0"
                             />
                         </div>
-                        <div class="flex justify-between gap-2">
+                        <div class="flex items-start justify-between gap-2">
                             <div ref="inputContainer" class="input-container w-5/6 relative">
                                 <label
                                     ref="fieldLabel"
@@ -64,18 +64,18 @@
                                     name="email"
                                     tabindex="-1"
                                     aria-label="User email"
-                                    class="input-elem relative z-10 bg-transparent rounded-none w-full block py-1 text-gray-500 border-b border-gray-200 focus:ouline-none outline-none focus:border-b focus:border-yellow-400"
+                                    class="input-elem relative z-10 bg-transparent rounded-none w-full block py-1 text-gray-500 border-b border-gray-200 focus:ouline-none outline-none"
                                 />
                                 <div
-                                    class="bg-red-600 h-px w-full absolute bottom-0 z-10 transform scale-x-0 transition-all duration-150"
+                                    class="line bg-teal-500 h-px w-full absolute bottom-0 z-10 opacity-0"
                                 />
                             </div>
                             <button
                                 type="button"
                                 arial-label="Join newsletter button"
-                                class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 hover:text-white hover:bg-teal-400"
+                                class="w-10 h-10 flex items-center justify-center rounded-full border group border-gray-200 hover:border-teal-500 hover:text-white hover:bg-teal-500"
                             >
-                                <span class="text-gray-500">↗</span>
+                                <span class="text-gray-500 group-hover:text-white"> ↗ </span>
                             </button>
                         </div>
                     </form>
@@ -102,7 +102,10 @@
 
 <script lang="ts" setup>
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import useFooterAnim from '@/composables/useFooterAnim'
 const { $gsap } = useNuxtApp()
+
+const { animateNewsletter } = useFooterAnim()
 
 const ctaBlock = ref<HTMLFormElement | null>(null)
 const formWrapper = ref<HTMLFormElement | null>(null)
@@ -118,10 +121,7 @@ const socials = ref<{ name: string; link: string }[]>([
     { name: 'Spotify', link: 'https://spotify.com' },
 ])
 
-// METHODS
-
 // SIDE EFFECTS
-
 onMounted(() => {
     ScrollTrigger.batch('.contactBlock', {
         onEnter: (element) => {
@@ -145,45 +145,8 @@ onMounted(() => {
         once: true,
     })
 
-    const targets = $gsap.utils.toArray('.input-container')
-
-    targets.forEach((element: any) => {
-        const label = element.querySelector('.field-label') as HTMLInputElement | null
-        const input = element.querySelector('.input-elem') as HTMLInputElement | null
-
-        // check if field is not empty
-        if (!input?.value) {
-            input?.addEventListener('focus', (event) => {
-                $gsap.to(label, {
-                    top: -16,
-                    left: 0,
-                    transformOrigin: 'left',
-                    scale: 0.7,
-                    duration: 0.5,
-                    ease: 'power2.out',
-                })
-            })
-        }
-    })
-
-    // add event listener to document obj to handle on click outside of the form
-    document.addEventListener('click', () => {
-        targets.forEach((element: any) => {
-            const label = element.querySelector('.field-label') as HTMLInputElement | null
-            const input = element.querySelector('.input-elem') as HTMLInputElement | null
-
-            if (document.activeElement !== input) {
-                if (!input?.value) {
-                    $gsap.to(label, {
-                        top: 0,
-                        left: 0,
-                        scale: 1,
-                        duration: 0.5,
-                        ease: 'power2.out',
-                    })
-                }
-            }
-        })
-    })
+    // NEWSLETTER ANIMATION
+    const targets: HTMLElement[] = $gsap.utils.toArray('.input-container')
+    animateNewsletter(targets)
 })
 </script>
