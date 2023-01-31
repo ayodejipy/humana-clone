@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full pb-14 sm:pb-32">
+    <div ref="ctaBlock" class="w-full pb-14 sm:pb-32">
         <div class="w-full overflow-hidden flex flex-col gap-6 md:gap-0 md:flex-row">
             <div
                 class="contactBlock relative w-full md:flex-[0_0_25%] md:max-w-[25%] space-y-3 md:space-y-0"
@@ -27,48 +27,58 @@
             </div>
             <div class="contactBlock relative w-full md:flex-[0_0_28%] md:max-w-[28%] sm:pl-16">
                 <h4 class="font-light text-2xl md:text-3xl mb-4 sm:mb-5">Join our newsletter</h4>
-                <div class="flex flex-col gap-8">
-                    <div class="w-full relative">
-                        <label for="fullname" class="absolute top-0 font-light text-gray-400">
-                            Your name
-                        </label>
-                        <input
-                            ref="inputElem"
-                            type="text"
-                            name="fullname"
-                            tabindex="-1"
-                            aria-label="User fullname"
-                            class="relative z-10 bg-transparent rounded-none w-full block py-1 px-3 border-b border-gray-200 focus:ouline-none outline-none focus:border-b focus:border-yellow-400"
-                        />
-                        <div
-                            class="bg-red-600 h-px w-full absolute bottom-0 z-10 transform scale-x-0 transition-all duration-150"
-                        />
-                    </div>
-                    <div class="flex justify-between gap-2">
-                        <div class="w-5/6 relative">
-                            <label for="email" class="absolute top-0 font-light text-gray-400">
-                                Email
+                <div>
+                    <form ref="formWrapper" class="flex flex-col gap-8">
+                        <div ref="inputContainer" class="input-container w-full relative">
+                            <label
+                                ref="fieldLabel"
+                                for="fullname"
+                                class="field-label absolute top-0 font-light text-gray-400"
+                            >
+                                Your name
                             </label>
                             <input
                                 ref="inputElem"
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="fullname"
                                 tabindex="-1"
-                                aria-label="User email"
-                                class="relative z-10 bg-transparent rounded-none w-full block py-1 px-3 border-b border-gray-200 focus:ouline-none outline-none focus:border-b focus:border-yellow-400"
+                                aria-label="User fullname"
+                                class="input-elem relative z-10 bg-transparent rounded-none w-full block py-1 text-gray-500 border-b border-gray-200 focus:ouline-none outline-none focus:border-b focus:border-yellow-400"
                             />
                             <div
                                 class="bg-red-600 h-px w-full absolute bottom-0 z-10 transform scale-x-0 transition-all duration-150"
-                            ></div>
+                            />
                         </div>
-                        <button
-                            type="button"
-                            arial-label="Join newsletter button"
-                            class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 hover:text-white hover:bg-teal-400"
-                        >
-                            <span class="text-gray-500">↗</span>
-                        </button>
-                    </div>
+                        <div class="flex justify-between gap-2">
+                            <div ref="inputContainer" class="input-container w-5/6 relative">
+                                <label
+                                    ref="fieldLabel"
+                                    for="email"
+                                    class="field-label absolute top-0 font-light text-gray-400"
+                                >
+                                    Email
+                                </label>
+                                <input
+                                    ref="inputElem"
+                                    type="email"
+                                    name="email"
+                                    tabindex="-1"
+                                    aria-label="User email"
+                                    class="input-elem relative z-10 bg-transparent rounded-none w-full block py-1 text-gray-500 border-b border-gray-200 focus:ouline-none outline-none focus:border-b focus:border-yellow-400"
+                                />
+                                <div
+                                    class="bg-red-600 h-px w-full absolute bottom-0 z-10 transform scale-x-0 transition-all duration-150"
+                                />
+                            </div>
+                            <button
+                                type="button"
+                                arial-label="Join newsletter button"
+                                class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 hover:text-white hover:bg-teal-400"
+                            >
+                                <span class="text-gray-500">↗</span>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div
@@ -94,8 +104,11 @@
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 const { $gsap } = useNuxtApp()
 
-const contactBlock = ref<HTMLDivElement | null>(null)
+const ctaBlock = ref<HTMLFormElement | null>(null)
+const formWrapper = ref<HTMLFormElement | null>(null)
+const inputContainer = ref<HTMLDivElement | null>(null)
 const inputElem = ref<HTMLInputElement | null>(null)
+const fieldLabel = ref<HTMLLabelElement | null>(null)
 
 const socials = ref<{ name: string; link: string }[]>([
     { name: 'Instagram', link: 'https://instagram.com' },
@@ -104,6 +117,11 @@ const socials = ref<{ name: string; link: string }[]>([
     { name: 'Medium', link: 'https://medium.com' },
     { name: 'Spotify', link: 'https://spotify.com' },
 ])
+
+// METHODS
+
+// SIDE EFFECTS
+
 onMounted(() => {
     ScrollTrigger.batch('.contactBlock', {
         onEnter: (element) => {
@@ -127,9 +145,46 @@ onMounted(() => {
         once: true,
     })
 
+    const targets = $gsap.utils.toArray('.input-container')
+
+    targets.forEach((element: any) => {
+        const label = element.querySelector('.field-label') as HTMLInputElement | null
+        const input = element.querySelector('.input-elem') as HTMLInputElement | null
+
+        // check if field is not empty
+        if (!input?.value) {
+            input?.addEventListener('focus', (event) => {
+                console.log({ event })
+                $gsap.to(label, {
+                    top: -16,
+                    left: 0,
+                    transformOrigin: 'left',
+                    scale: 0.7,
+                    duration: 0.5,
+                    ease: 'power2.out',
+                })
+            })
+        }
+    })
+
     // add event listener
-    inputElem.value?.addEventListener('click', (event) => {
-        console.log('e: ', event)
+    document.addEventListener('click', () => {
+        targets.forEach((element: any) => {
+            const label = element.querySelector('.field-label') as HTMLInputElement | null
+            const input = element.querySelector('.input-elem') as HTMLInputElement | null
+
+            if (document.activeElement !== input) {
+                if (!input?.value) {
+                    $gsap.to(label, {
+                        top: 0,
+                        left: 0,
+                        scale: 1,
+                        duration: 0.5,
+                        ease: 'power2.out',
+                    })
+                }
+            }
+        })
     })
 })
 </script>
